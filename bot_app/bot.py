@@ -1,10 +1,14 @@
-import os
-from aiogram import Bot, Dispatcher
+# bot_app/bot.py
+from aiogram import Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
-from dotenv import load_dotenv
 
-load_dotenv()
-TOKEN = os.getenv("TELEGRAM_TOKEN")
-
-bot = Bot(token=TOKEN)
+# ------------------------------------------------------------
+# Dispatcher setup
+# ------------------------------------------------------------
+# Тут не создаём Bot, чтобы избежать дубликатов экземпляров.
+# Bot создаётся и управляется в main.py, а сюда просто импортируется dp.
+# Это нужно, чтобы aiogram не открывал лишних HTTP-сессий.
 dp = Dispatcher(storage=MemoryStorage())
+
+# Импортируем хендлеры, чтобы они зарегистрировались при импорте
+from . import handlers  # noqa: F401
