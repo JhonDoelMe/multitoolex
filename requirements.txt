@@ -1,0 +1,12 @@
+aiogram
+SQLAlchemy
+asyncpg
+python-dotenv
+yt-dlp
+aiofiles
+httpx
+ffmpeg-python
+SQLAlchemy
+alembic
+pydantic
+fastapi
